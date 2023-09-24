@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="pokebola2.png" type="image/x-icon">
+    <title>Login</title>
+    <link href="styles.css" rel="stylesheet">    
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">
+                <img src="pokebola.png" alt="Logo">
+            </div>
+            <div class="title">Contrabando de Pokemons</div>
+            <div>
+                <button class="botao_login" id="login" onclick="telaLogin()">Login</button>
+                <button class="botao_login" id="registrar" onclick="telaRegistrar()">Registrar</button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="login" id="logar">
+            <label class="campo">
+                Usuario
+                <input type="text" id="usuario">
+            </label>
+            <label class="campo">
+                Senha
+                <input type="password" id="senha">
+            </label>
+        </div>
+
+        <div class="login" id="campos_registrar"> 
+            <label class="campo">
+                E-mail
+                <input type="email" id="email">
+            </label>
+            <label class="campo">
+                Nascimento
+                <input type="date" id="nascimento">
+            </label>
+        </div>
+        <div class="login">
+            <input type="submit" value="Entrar" id="botao_entrar" onclick="entrar()">
+            <input type="submit" value="Cadastrar" id="botao_cadastrar" onclick="cadastrar()">
+        </div>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+</html>
