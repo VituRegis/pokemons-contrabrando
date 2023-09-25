@@ -1,9 +1,12 @@
-var LOGIN;
-const login = document.getElementById('login') 
-const registrar = document.getElementById('registrar') 
+var currentURL = window.location.href;
+var params = new URLSearchParams(currentURL.split('?')[1]);
+var getLogin = params.get('ehLogin');
 
-// login.addEventListener('click',telaLogin())
-// registrar.addEventListener('click',telaRegistrar())
+if(getLogin){
+    telaLogin();
+}else{
+    telaRegistrar();
+}
 
 function telaLogin(){
     document.getElementById('botao_entrar').style.display = 'flex'
@@ -18,51 +21,46 @@ function telaRegistrar(){
     
 }
 
+function getTiposPokemon(){
+    var pokemon = document.getElementById('pokemonSelect').value;
 
-async function cadastrar() {
-
-    var obj = {
-        username: null,
-        secret: null,
-        email: null,
-        birthDate: null
-    }
-
-    obj.username = document.getElementById('usuario').value;
-    obj.email = document.getElementById('email').value;
-    obj.secret = document.getElementById('senha').value;
-    obj.birthDate = document.getElementById('nascimento').value;
-
-    const response = await fetch("http://localhost:8080/api/person/save", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data)
-    })
-    
-    if (response.status != 201) {
-        console.error('Não foi possível realizar a ação desejada')
-    }
-
-    
+    switch (pokemon) {
+        case 'Pikachu':
+            document.getElementById('tipoPokemonSelect1').value = 'ELECTRIC';
+            document.getElementById('tipoPokemonSelect2').value = 'null';
+          break;
+        case 'Bulbasaur':
+        case 'Ivysaur':
+        case 'Venusaur':
+            document.getElementById('tipoPokemonSelect1').value = 'GRASS';
+            document.getElementById('tipoPokemonSelect2').value = 'POISON';
+            break;
+        case 'Charmander':
+        case 'Charmeleon':
+        case 'Charizard':
+            document.getElementById('tipoPokemonSelect1').value = 'FIRE';
+            document.getElementById('tipoPokemonSelect2').value = 'FLYING';
+            break;
+        case 'Squirtle':
+        case 'Wartortle':
+        case 'Blastoise':
+            document.getElementById('tipoPokemonSelect1').value = 'WATER';
+            document.getElementById('tipoPokemonSelect2').value = 'null';
+            break;
+        case 'Caterpie':
+        case 'Metapod':
+            document.getElementById('tipoPokemonSelect1').value = 'BUG';
+            document.getElementById('tipoPokemonSelect2').value = 'null';
+            break;
+        case 'Butterfree':
+            document.getElementById('tipoPokemonSelect1').value = 'BUG';
+            document.getElementById('tipoPokemonSelect2').value = 'FLYING';
+            break;
+        case 'Weedle':
+        case 'Kakuna':
+        case 'Beedrill':
+            document.getElementById('tipoPokemonSelect1').value = 'BUG';
+            document.getElementById('tipoPokemonSelect2').value = 'POISON';
+            break;
+      }
 }
-
-/*
-const response = await fetch(url, {
-    method: "POST", // *GET, POST, PUT, DELETE, etc.
-    mode: "cors", // no-cors, *cors, same-origin
-    cache: "no-cache", // *default, no-cache, reload, force-cache, only-if-cached
-    credentials: "same-origin", // include, *same-origin, omit
-    headers: {
-      "Content-Type": "application/json",
-      // 'Content-Type': 'application/x-www-form-urlencoded',
-    },
-    redirect: "follow", // manual, *follow, error
-    referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-    body: JSON.stringify(data), // body data type must match "Content-Type" header
-  });
-  return response.json(); // parses JSON response into native JavaScript objects
-}
-
-*/
