@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="pokebola2.png" type="image/x-icon">
+    <title>Registro de Pokemon</title>
+    <link href="styles.css" rel="stylesheet">    
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo">
+                <a href="./main.html">
+                    <img src="pokebola.png" alt="Logo" href="main.html">
+                </a>
+            </div>
+            <div class="title">Contrabando de Pokemons</div>
+            <div>
+                <a class="botao_login" href="./login.html" id="login">
+                    Login
+                </a>
+                <a class="botao_login" href="./login.html" id="registrar">
+                    Registrar
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="container">
+        <h1>Anunciar Pokémon:</h1>
+        <select id="pokemonSelect" onchange="getTiposPokemon()">
+            <option  value="Bulbasaur">  Bulbasaur   </option>
+            <option  value="Ivysaur">    Ivysaur     </option>
+            <option  value="Venusaur">   Venusaur    </option>
+            <option  value="Charmander"> Charmander  </option>
+            <option  value="Charmeleon"> Charmeleon  </option>
+            <option  value="Charizard">  Charizard   </option>
+            <option  value="Squirtle">   Squirtle    </option>
+            <option  value="Wartortle">  Wartortle   </option>
+            <option  value="Blastoise">  Blastoise   </option>
+            <option value="Caterpie">    Caterpie   </option>
+            <option value="Metapod">     Metapod    </option>
+            <option value="Butterfree">  Butterfree </option>
+            <option value="Weedle">      Weedle     </option>
+            <option value="Kakuna">      Kakuna     </option>
+            <option value="Beedrill">    Beedrill   </option>
+            <option value="Pikachu">     Pikachu    </option>
+        </select>
+
+        <select id="tipoPokemonSelect1" disabled>
+            <option value="GRASS">Grama</option>
+            <option value="NORMAL">Normal</option>
+            <option value="BUG">Inseto</option>
+            <option value="FIRE">Fogo</option>
+            <option value="WATER">Agua</option>
+            <option value="POISON">Venenoso</option>
+            <option value="ELECTRIC">Elétrico</option>
+            <option value="FLYING">Voador</option>
+        </select>
+
+        <select id="tipoPokemonSelect2" disabled>
+            <option value="null">Sem Tipo Secundário</option>
+            <option value="BUG">Inseto</option>
+            <option value="FIRE">Fogo</option>
+            <option value="WATER">Agua</option>
+            <option value="GRASS">Grama</option>
+            <option value="POISON">Venenoso</option>
+            <option value="ELECTRIC">Elétrico</option>
+            <option value="FLYING">Voador</option>
+        </select>
+
+        <div class="anuncio">
+            <label class="campo">
+                Level
+                <input type="number" id="level" min="1" max="100">
+            </label>
+            <label class="campo">
+                Valor
+                <input type="number" id="valor" min="1" max="1000000">
+            </label>
+        </div>
+        <div class="anuncio">
+            <input type="submit" value="Anunciar">
+        </div>
+    </div>
+    
+    <script src="scripts.js"></script>
+</body>
+</html>
