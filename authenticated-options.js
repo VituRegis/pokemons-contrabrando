@@ -26,6 +26,14 @@ async function addHeader() {
       addPokemon.style.textDecoration="none";
       addPokemon.style.color="white";
       addPokemon.href="./anunciar.html";
+      var myPokemons= document.createElement("a");
+      myPokemons.textContent="Pokemons cadastrados";
+      myPokemons.style.backgroundColor="grey";
+      myPokemons.style.padding="15px";
+      myPokemons.style.borderRadius="10px";
+      myPokemons.style.textDecoration="none";
+      myPokemons.style.color="white";
+      myPokemons.href="./meus-pokemons.html";
       var listPokemons= document.createElement("a");
       listPokemons.textContent="Pokemons a venda";
       listPokemons.style.backgroundColor="blue";
@@ -48,6 +56,7 @@ async function addHeader() {
       document.getElementsByClassName('header').item(0).append(userInfoBox)
       document.getElementsByClassName('header').item(0).append(addPokemon)
       document.getElementsByClassName('header').item(0).append(listPokemons)
+      document.getElementsByClassName('header').item(0).append(myPokemons)
       document.getElementsByClassName('header').item(0).append(logoffButton)
     })
 }

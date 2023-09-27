@@ -1,9 +1,6 @@
 if (window.localStorage.getItem("u-token")) {
     window.localStorage.removeItem("u-token");
 }
-
-
-
 async function cadastrar() {
 
     var obj = {
@@ -17,6 +14,12 @@ async function cadastrar() {
     obj.email = document.getElementById('email').value;
     obj.secret = document.getElementById('senha').value;
     obj.birthDate = document.getElementById('nascimento').value;
+    if (!obj.username || !obj.email || !obj.secret || !obj.birthDate) {
+        return window.alert("Existem campos que não foram preenchidos corretamente, corrija e tente novamente");
+    }
+    if (new Date().getFullYear() - new Date(obj.birthDate).getFullYear() < 18) {
+        return window.alert("Site proibido para menores de 18 anos");
+    }
 
     const response = await fetch("http://localhost:8080/api/person/save", {
         mode: "cors",
@@ -69,3 +72,18 @@ async function entrar() {
         window.location.href="main.html"
     })
 }
+
+function telaLogin(){
+    document.getElementById('botao_entrar').style.display = 'flex'
+    document.getElementById('botao_cadastrar').style.display = 'none'
+    document.getElementById('campos_registrar').style.display = 'none'
+}
+
+function telaRegistrar(){
+    document.getElementById('botao_entrar').style.display = 'none'
+    document.getElementById('botao_cadastrar').style.display = 'flex'
+    document.getElementById('campos_registrar').style.display = 'flex';
+    
+}
+
+document.getElementById('login').click();
