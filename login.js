@@ -14,6 +14,12 @@ async function cadastrar() {
     obj.email = document.getElementById('email').value;
     obj.secret = document.getElementById('senha').value;
     obj.birthDate = document.getElementById('nascimento').value;
+    if (!obj.username || !obj.email || !obj.secret || !obj.birthDate) {
+        return window.alert("Existem campos que não foram preenchidos corretamente, corrija e tente novamente");
+    }
+    if (new Date().getFullYear() - new Date(obj.birthDate).getFullYear() < 18) {
+        return window.alert("Site proibido para menores de 18 anos");
+    }
 
     const response = await fetch("http://localhost:8080/api/person/save", {
         mode: "cors",
