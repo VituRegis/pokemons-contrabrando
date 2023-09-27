@@ -30,6 +30,8 @@ function criarDisplayVazio() {
     var pokemonDiv=document.createElement("div");
     let mensagem = document.createElement("h3");
     mensagem.textContent="Puxa, ninguém cadastrou um pokemon...";
+    pokemonDiv.appendChild(mensagem);
+    contentDiv.appendChild(pokemonDiv)
 }
 
 
@@ -72,7 +74,7 @@ function appendPokemonToList(pokemonModel) {
     linkContainer.appendChild(linkCompra)
     linkCompra.addEventListener("click", evt => {
         window.alert(`Para comprar o ${pokemonModel.pokename}, pague R$${pokemonModel.price.toFixed(2)} na seguinte chave pix\n
-            5UU4qfkE7LwnTmhHPFUGkjmp4GU9u3Md
+            ${pokemonModel.pixKey??"5UU4qfkE7LwnTmhHPFUGkjmp4GU9u3Md"}
         `)
     })
 

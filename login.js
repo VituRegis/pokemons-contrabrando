@@ -1,9 +1,6 @@
 if (window.localStorage.getItem("u-token")) {
     window.localStorage.removeItem("u-token");
 }
-
-
-
 async function cadastrar() {
 
     var obj = {
@@ -69,3 +66,18 @@ async function entrar() {
         window.location.href="main.html"
     })
 }
+
+function telaLogin(){
+    document.getElementById('botao_entrar').style.display = 'flex'
+    document.getElementById('botao_cadastrar').style.display = 'none'
+    document.getElementById('campos_registrar').style.display = 'none'
+}
+
+function telaRegistrar(){
+    document.getElementById('botao_entrar').style.display = 'none'
+    document.getElementById('botao_cadastrar').style.display = 'flex'
+    document.getElementById('campos_registrar').style.display = 'flex';
+    
+}
+
+document.getElementById('login').click();
